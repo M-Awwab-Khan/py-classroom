@@ -15,7 +15,7 @@ ApplicationWindow {
 
     StackView {
         id: stackView
-        initialItem: "view.qml"
+        initialItem: "login.qml"
         anchors.fill: parent
     }
 }

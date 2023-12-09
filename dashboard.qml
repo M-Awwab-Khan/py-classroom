@@ -6,15 +6,37 @@ import QtQuick.Controls.Material
 
 Page {
     title: "Dashboard"
-    Column {
-        anchors.centerIn: parent
-        spacing: 10
-        Rectangle {
-            x: 20
-            y: 20
-            width: parent.width
-            height: 200
-            color: Material.Amber
-            radius: 30
+
+    Grid {
+        columns: 3
+        spacing: 2
+        Pane {
+            Item {
+                Rectangle {
+                    width: 100
+                    height: 200
+                    color: "salmon"
+                }
+            }
         }
-}   }
+        Pane {
+            Item {
+                Rectangle {
+                    width: 100
+                    height: 200
+                    color: "blue"
+                }
+            }
+        }
+        Pane {
+            Item {
+                Rectangle {
+                    width: 100
+                    height: 200
+                    color: "green"
+                }
+            }
+        }
+    }
+
+}
