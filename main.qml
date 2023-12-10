@@ -6,8 +6,9 @@ import QtQuick.Controls.Material
 
 ApplicationWindow {
     visible: true
-    height: 800
-    width: 800
+    width: 1280
+    height: 720
+    font.family: "Rethink Sans"
     title: qsTr("Py Classroom")
     flags: Qt.Window | Qt.MSWindowsFixedSizeDialogHint | Qt.WindowCloseButtonHint
     Material.theme: Material.Light

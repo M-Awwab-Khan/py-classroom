@@ -10,6 +10,10 @@ class Bridge(QObject):
     def login(self, username: str, password: str, role):
         print(username, password, role)
 
+    @Slot(str)
+    def classpage(self, classname: str):
+        print(classname)
+
 
 if __name__ == '__main__':
     app = QGuiApplication(sys.argv)

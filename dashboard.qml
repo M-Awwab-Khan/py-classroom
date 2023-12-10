@@ -7,8 +7,6 @@ import QtQuick.Controls.Material 2.12
 
 Page {
     visible: true
-    width: 800
-    height: 600
     title: "Student Dashboard"
 
     Rectangle {
@@ -24,6 +22,7 @@ Page {
             Text {
                 anchors.centerIn: parent
                 text: "Dashboard"
+                font.family: "Rethink Sans"
                 font.pixelSize: 18
                 color: "black"
             }
@@ -32,7 +31,7 @@ Page {
             Image {
                 width: 30
                 height: 30
-                source: "avatar.png" // Set the actual path to the avatar image
+                source: "img/avatar.png" // Set the actual path to the avatar image
                 anchors {
                     top: parent.top
                     right: parent.right
@@ -55,11 +54,12 @@ Page {
             text: "Welcome John Doe" // Replace with the actual student's name
             font.pixelSize: 20
             font.bold: true
+            font.family: "Rethink Sans"
             anchors {
                 top: parent.top
                 left: parent.left
                 topMargin: 80
-                leftMargin: 40
+                leftMargin: 60
             }
         }
 
@@ -69,26 +69,26 @@ Page {
                 top: parent.top
                 left: parent.left
                 topMargin: 120
-                leftMargin: 30
+                leftMargin: 50
             }
             width: parent.width - 20
             height: parent.height - 100
-            cellWidth: 200
-            cellHeight: 250
+            cellWidth: 250
+            cellHeight: 300
             model: ListModel {
-                ListElement { subject: "Math"; teacher: "Mr. Smith"; illustration: "math.jpg" }
-                ListElement { subject: "History"; teacher: "Ms. Johnson"; illustration: "history.jpg" }
+                ListElement { subject: "Math"; teacher: "Mr. Smith"; illustration: "img/math.jpg" }
+                ListElement { subject: "History"; teacher: "Ms. Johnson"; illustration: "img/history.jpg" }
                 // Add more classes as needed
             }
 
             delegate: Pane {
-                width: 200
-                height: 250
+                width: 250
+                height: 300
                 clip: true
                 Rectangle {
                     id: classcard
-                    width: 180
-                    height: 230
+                    width: parent.width
+                    height: parent.height
                     color: "white"
                     radius: 10
                     border.color: "#bdc3c7"
@@ -97,19 +97,8 @@ Page {
 
                     Image {
                         width: parent.width
-                        height: 150
+                        height: 170
                         source: model.illustration
-                    }
-
-                    Text {
-                        anchors {
-                            top: parent.top
-                            horizontalCenter: parent.horizontalCenter
-                            topMargin: 170
-                        }
-                        text: model.subject
-                        font.pixelSize: 20
-                        font.bold: true
                     }
 
                     Text {
@@ -118,12 +107,34 @@ Page {
                             horizontalCenter: parent.horizontalCenter
                             topMargin: 200
                         }
+                        font.family: "Rethink Sans"
+                        text: model.subject
+                        font.pixelSize: 22
+                        font.bold: true
+                    }
+
+                    Text {
+                        anchors {
+                            top: parent.top
+                            horizontalCenter: parent.horizontalCenter
+                            topMargin: 230
+                        }
+                        font.family: "Rethink Sans"
                         text: "Teacher: " + model.teacher
                         color: "#7f8c8d"
-                        font.pixelSize: 10
+                        font.pixelSize: 12
                     }
                 }
-                
+                // MouseArea for handling clicks
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        // Handle the click event here
+                        con.classpage(model.subject);
+                        // Add navigation logic here, e.g., change the current page
+                        stackView.push("classpage.qml")
+                    }
+                }
             }
         }
     }

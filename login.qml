@@ -11,6 +11,7 @@ Page {
         spacing: 10
 
         Text {
+            font.family: "Rethink Sans"
             text: "Login\n\n"
             anchors.horizontalCenter: parent.horizontalCenter
             font.pointSize: 24; font.bold: true
