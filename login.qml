@@ -36,7 +36,7 @@ Page {
         }
 
         Button {
-            text: qsTr("Login")
+            text: qsTr("LOGIN")
             width: 300
             Material.background: Material.accent
             highlighted: true

@@ -25,7 +25,7 @@ Page {
                 anchors.centerIn: parent
                 text: "Dashboard"
                 font.pixelSize: 18
-                color: "white"
+                color: "black"
             }
 
             // Student Avatar
