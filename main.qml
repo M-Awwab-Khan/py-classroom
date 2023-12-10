@@ -8,10 +8,10 @@ ApplicationWindow {
     visible: true
     height: 800
     width: 800
-    title: qsTr("Facial Recognition Based Attendance")
+    title: qsTr("Py Classroom")
     flags: Qt.Window | Qt.MSWindowsFixedSizeDialogHint | Qt.WindowCloseButtonHint
     Material.theme: Material.Light
-    Material.accent: "#000000"
+    Material.accent: "#F07167"
 
     StackView {
         id: stackView

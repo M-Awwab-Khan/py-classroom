@@ -54,11 +54,12 @@ Page {
         Text {
             text: "Welcome John Doe" // Replace with the actual student's name
             font.pixelSize: 20
+            font.bold: true
             anchors {
                 top: parent.top
                 left: parent.left
                 topMargin: 80
-                leftMargin: 30
+                leftMargin: 40
             }
         }
 
@@ -72,7 +73,7 @@ Page {
             }
             width: parent.width - 20
             height: parent.height - 100
-            cellWidth: 190
+            cellWidth: 200
             cellHeight: 250
             model: ListModel {
                 ListElement { subject: "Math"; teacher: "Mr. Smith"; illustration: "math.jpg" }
@@ -81,7 +82,11 @@ Page {
             }
 
             delegate: Pane {
+                width: 200
+                height: 250
+                clip: true
                 Rectangle {
+                    id: classcard
                     width: 180
                     height: 230
                     color: "white"
@@ -89,8 +94,6 @@ Page {
                     border.color: "#bdc3c7"
                     border.width: 1
                     smooth: true
-                    // Add shadow effect
-                    Material.elevation: 50
 
                     Image {
                         width: parent.width
@@ -120,8 +123,9 @@ Page {
                         font.pixelSize: 10
                     }
                 }
-
+                
             }
         }
     }
 }
+
