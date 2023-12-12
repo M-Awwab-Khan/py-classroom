@@ -15,7 +15,7 @@ Page {
 
         // Header with Image Background
         Rectangle {
-            width: 800
+            width: parent.width // Adjusted width
             height: 200
             color: "#3498db" // Header background color
 
@@ -30,18 +30,21 @@ Page {
                 anchors {
                     left: parent.left
                     bottom: parent.bottom
-                    leftMargin: 10
-                    bottomMargin: 10
+                    leftMargin: 100
+                    bottomMargin: 20
                 }
+                
+                spacing: 10
 
                 Text {
-                    text: "History" // Replace with the actual subject name
+                    text: "Subject Name" // Replace with the actual subject name
                     font.pixelSize: 24
+                    font.bold: true
                     color: "white"
                 }
 
                 Text {
-                    text: "Miss Shamsa Qamar" // Replace with the actual section subtitle
+                    text: "Section Subtitle" // Replace with the actual section subtitle
                     font.pixelSize: 14
                     color: "white"
                 }
@@ -52,12 +55,11 @@ Page {
         ListView {
             anchors {
                 top: parent.top
-                left: parent.left
-                topMargin: 200
-                leftMargin: 10
+                horizontalCenter: parent.horizontalCenter // Center horizontally
+                topMargin: 240 // Adjusted top margin
             }
-            width: parent.width - 20
-            height: parent.height - 200
+            width: parent.width - 190 // Adjusted width
+            height: parent.height - 210 // Adjusted height
             clip: true
 
             model: ListModel {
@@ -68,11 +70,14 @@ Page {
 
             delegate: Item {
                 width: parent.width
-                height: 120
+                height: 100
 
                 Rectangle {
+                    anchors {
+                        verticalCenter: parent.verticalCenter
+                    }
                     width: parent.width
-                    height: 120
+                    height: 80
                     color: "white"
                     radius: 10
                     border.color: "#bdc3c7"
@@ -81,8 +86,11 @@ Page {
 
                     ColumnLayout {
                         anchors.fill: parent
-                        spacing: 5
-
+                        spacing: -30
+                        anchors {
+                            leftMargin: 30
+                        }
+                        
                         Text {
                             text: model.assignment
                             font.bold: true
@@ -106,6 +114,13 @@ Page {
                         verticalOffset: 2
                         radius: 5
                         samples: 20
+                    }
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        // Add navigation logic here, e.g., change the current page
+                        stackView.push("assignment.qml")
                     }
                 }
             }
