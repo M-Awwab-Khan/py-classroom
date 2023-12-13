@@ -12,7 +12,6 @@ Page {
     Rectangle {
         width: parent.width
         height: parent.height
-
         // Header with Image Background
         Rectangle {
             width: parent.width // Adjusted width
@@ -65,6 +64,7 @@ Page {
             model: ListModel {
                 ListElement { assignment: "Homework 1"; date: "Published on Jan 10, 2023" }
                 ListElement { assignment: "Project Submission"; date: "Published on Jan 15, 2023" }
+                ListElement { assignment: "Calculus Material"; date: "Published on Jan 19, 2023" }
                 // Add more assignments as needed
             }
 
@@ -120,7 +120,7 @@ Page {
                     anchors.fill: parent
                     onClicked: {
                         // Add navigation logic here, e.g., change the current page
-                        stackView.push("assignment.qml")
+                        stackView.push("material.qml")
                     }
                 }
             }

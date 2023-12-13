@@ -23,9 +23,11 @@ Page {
                 text: "Differential and Integral Calculus" // Replace with the actual class name
                 font.pixelSize: 18
                 color: "white"
+                font.bold: true
                 anchors.left: parent.left
-                anchors.centerIn: parent
-                horizontalAlignment: Text.AlignLeft
+                anchors.top: parent.top
+                anchors.topMargin: 15
+                anchors.leftMargin: 20
 
             }
         }
@@ -34,9 +36,10 @@ Page {
                 top: parent.top
                 horizontalCenter: parent.horizontalCenter // Center horizontally
             }
-            width: parent.width - 190 // Adjusted width
+            width: parent.width - 200 // Adjusted width
             // Two-Column Layout
             RowLayout {
+                width: parent.width
                 anchors {
                     top: parent.top
                     topMargin: 120
@@ -44,8 +47,8 @@ Page {
 
                 // Left Column
                 Column {
-                    Layout.maximumWidth: 800
-                    Layout.minimumWidth: 800
+                    Layout.maximumWidth: 900
+                    Layout.minimumWidth: parent.width - 400
                     spacing: 20
 
                     // Title, Teacher Name, Publish Date
@@ -98,6 +101,10 @@ Page {
 
                 // Right Column
                 Column {
+                    anchors {
+                        right: parent.right
+                    }
+                    Layout.alignment: Qt.AlignRight
                     Layout.maximumWidth: 300
                     Layout.minimumWidth: 300
                     spacing: 10
